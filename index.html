@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManBTI</title>
+    <meta name="description" content="momo" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="start-screen" class="screen screen-active intro" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <h1 id="intro-title">MoBTI</h1>
+          <p class="subtitle">测一测你的十六馒格</p>
+          <figure class="intro-image">
+            <img src="./assets/馍.jpg" alt="手里有个热乎乎的馍馍比什么都重要" />
+          </figure>
+          <p class="lead">随着年龄增长有的人根本没有变得成熟，而是默默发酵了...</p>
+          <button id="start-btn" class="primary-btn" type="button">揉一下</button>
+        </div>
+      </section>
+
+      <section id="quiz-screen" class="screen quiz" aria-live="polite">
+        <div class="quiz-top">
+          <div>
+            <p id="progress-label" class="eyebrow">第 1 / 8 步</p>
+            <h2 id="question-text"></h2>
+          </div>
+          <div class="progress-shell" aria-hidden="true">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div id="options" class="options"></div>
+
+        <div class="quiz-actions">
+          <button id="prev-btn" class="ghost-btn" type="button">上一步</button>
+          <button id="next-btn" class="primary-btn" type="button" disabled>下一步</button>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen result" aria-labelledby="result-type">
+        <div class="result-card">
+          <div class="mantou-frame">
+            <img id="mantou-photo" class="mantou-photo" src="" alt="" />
+          </div>
+          <div class="result-copy">
+            <h2 id="result-type" class="result-heading">
+              <span>你是...</span>
+              <strong id="result-name"></strong>
+            </h2>
+            <div id="result-description" class="result-description"></div>
+            <div class="result-actions">
+              <button id="restart-btn" class="primary-btn" type="button">重新制作</button>
+              <button id="copy-home-btn" class="ghost-btn" type="button">分享首页</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="credit">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+        备案号：赣ICP备2022003048号-1
+      </a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
