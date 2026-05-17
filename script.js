@@ -17,7 +17,7 @@ const results = {
   purpleSweetPotato: { title: "紫薯馒头", tag: "柔紫绵密", sprite: [3, 2], description: "颜色温柔香气浓郁真是一个好馍好馍" },
   carrot: { title: "胡萝卜馒头", tag: "清甜元气", sprite: [4, 2], description: "不知道谁发明的难吃东西开除馍籍" },
   jujube: { title: "红枣馒头", tag: "家常暖甜", sprite: [5, 2], description: "颜色温柔香气甜美真是一个好馍好馍" },
-  blueberry: { title: "蓝莓馒头", tag: "酸甜跳脱", sprite: [0, 3], description: "新西方厨师灵机一动一把酵母白死了" },
+  blueberry: { title: "蓝莓馒头", tag: "酸甜跳脱", sprite: [0, 3], description: "新西方厨师灵机一动，一杯酵母白死了" },
   taroSoy: { title: "豆乳芋泥馒头", tag: "细腻复合", sprite: [1, 3], description: "鲍师傅指使的" },
   brownSugar: { title: "红糖开花馒头", tag: "热烈开裂", sprite: [2, 3], description: "人民严选传统老方" },
   huajuan: { title: "花卷", tag: "边界偏移", sprite: [3, 3], description: "花卷馒...你根本不是馒头。又或者你是一个葱香味的扭曲馒头..." },
