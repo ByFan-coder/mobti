@@ -1,4 +1,4 @@
- const results = {
+const results = {
   plainWater: { title: "大白馒头", tag: "基础本味", sprite: [0, 0], description: "配方简单，口感稳定的原教旨主义馒头" },
   softWhite: { title: "甜馒头", tag: "蓬松柔和", sprite: [1, 0], description: "组织松软，轻盈的精制馒头。因为长得和大白馒头太像欺骗了无数健身人士" },
   oldDough: { title: "老面馒头", tag: "发酵充分", sprite: [2, 0], description: "这是我祖上石器时代传下来的老面..." },
@@ -25,18 +25,15 @@
   scallionHuajuan: { title: "桂花酒酿馒头", tag: "咸香分支", sprite: [5, 3], description: "感觉已经属于甜品了" },
 };
 
-const commonsPhoto = (fileName) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=900`;
-
 const photos = {
-  white: commonsPhoto("White flour steamed buns.jpg"),
-  classicWhite: commonsPhoto("ClassicwhiteMantou.jpg"),
-  colorful: commonsPhoto("Colorful steamed buns (1).jpg"),
-  redBean: commonsPhoto("Red Bean Bun (Taiwan).jpg"),
-  redBeanOpen: commonsPhoto("Steamed bun stuffed with sweet red beans @ Lai-Lai Ken @ Paris (32180464713).jpg"),
-  huajuan: commonsPhoto("Steamed Silver Thread Buns.jpg"),
-  black: commonsPhoto("Black steamed bun with meat.jpg"),
-  buns: commonsPhoto("Steamed buns and pancakes.jpg"),
+  white: "https://commons.wikimedia.org/wiki/Special:FilePath/White%20flour%20steamed%20buns.jpg?width=900",
+  classicWhite: "https://commons.wikimedia.org/wiki/Special:FilePath/ClassicwhiteMantou.jpg?width=900",
+  colorful: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20steamed%20buns%20(1).jpg?width=900",
+  redBean: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20steamed%20buns%20(1).jpg?width=900",
+  redBeanOpen: "https://commons.wikimedia.org/wiki/Special:FilePath/Steamed%20buns%20and%20pancakes.jpg?width=900",
+  huajuan: "https://commons.wikimedia.org/wiki/Special:FilePath/Steamed%20Silver%20Thread%20Buns.jpg?width=900",
+  black: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20steamed%20buns%20(1).jpg?width=900",
+  buns: "https://commons.wikimedia.org/wiki/Special:FilePath/Steamed%20buns%20and%20pancakes.jpg?width=900",
 };
 
 const resultPhotos = {
@@ -71,6 +68,32 @@ Object.entries(resultPhotos).forEach(([key, image]) => {
 });
 
 const resultOrder = Object.keys(results);
+
+const scoringProfiles = {
+  plainWater: { plainWater: 3, roundWhite: 2, knifeCut: 2, huajuan: 1, scallionHuajuan: 1, wholeWheat: 1 },
+  milkMantou: { milkMantou: 3, softWhite: 2, creamMini: 2, taroSoy: 1 },
+  oldDough: { oldDough: 3, qiangmian: 2, alkaline: 1, wholeWheat: 1 },
+  softWhite: { softWhite: 3, roundWhite: 2, milkMantou: 1, creamMini: 1 },
+  qiangmian: { qiangmian: 3, oldDough: 2, alkaline: 1, wholeWheat: 1 },
+  knifeCut: { knifeCut: 3, plainWater: 2, qiangmian: 1 },
+  wholeWheat: { wholeWheat: 3, corn: 2, oldDough: 1, qiangmian: 1 },
+  spinach: { spinach: 3, sesame: 1, wholeWheat: 1 },
+  carrot: { carrot: 3, pumpkin: 2, corn: 1 },
+  redBean: { redBean: 3, blackSesameFilling: 2, taroSoy: 1 },
+  jujube: { jujube: 3, pumpkin: 1, brownSugar: 1 },
+  brownSugar: { brownSugar: 3, jujube: 2, redBean: 1 },
+  roundWhite: { roundWhite: 3, plainWater: 2, softWhite: 1 },
+  creamMini: { creamMini: 3, milkMantou: 2, softWhite: 1 },
+  huajuan: { huajuan: 3, scallionHuajuan: 2, plainWater: 1 },
+  sesame: { sesame: 3, blackSesameFilling: 2, taroSoy: 1 },
+  alkaline: { alkaline: 3, oldDough: 2, qiangmian: 1 },
+  scallionHuajuan: { scallionHuajuan: 3, huajuan: 2, knifeCut: 1 },
+  pumpkin: { pumpkin: 3, carrot: 2, jujube: 1 },
+  purpleSweetPotato: { purpleSweetPotato: 3, taroSoy: 2, blueberry: 1 },
+  blueberry: { blueberry: 3, taroSoy: 1, purpleSweetPotato: 1 },
+  corn: { corn: 3, wholeWheat: 2, pumpkin: 1 },
+  taroSoy: { taroSoy: 3, purpleSweetPotato: 2, milkMantou: 1 },
+};
 
 const questions = [
   {
@@ -244,10 +267,16 @@ function renderQuestion() {
 
 function renderResult() {
   const scores = Object.fromEntries(resultOrder.map((key) => [key, 0]));
-  const pickedResults = state.answers.map((answerIndex, questionIndex) => {
-    const resultKey = questions[questionIndex].options[answerIndex].result;
-    scores[resultKey] += 1;
-    return resultKey;
+  const pickedResults = [];
+
+  state.answers.forEach((answerIndex, questionIndex) => {
+    const option = questions[questionIndex].options[answerIndex];
+    const optionScores = option.scores || scoringProfiles[option.result] || { [option.result]: 1 };
+
+    Object.entries(optionScores).forEach(([resultKey, points]) => {
+      scores[resultKey] += points;
+    });
+    pickedResults.push(option.result);
   });
 
   const highestScore = Math.max(...Object.values(scores));
@@ -255,7 +284,7 @@ function renderResult() {
   const winnerKey =
     tiedWinners.length === 1
       ? tiedWinners[0]
-      : [...pickedResults].reverse().find((key) => tiedWinners.includes(key));
+      : [...pickedResults].reverse().find((key) => tiedWinners.includes(key)) || tiedWinners[0];
   const result = results[winnerKey];
   const mantouPhoto = document.querySelector("#mantou-photo");
 
