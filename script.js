@@ -70,7 +70,7 @@ Object.entries(resultPhotos).forEach(([key, image]) => {
 const resultOrder = Object.keys(results);
 
 const scoringProfiles = {
-  plainWater: { plainWater: 3, roundWhite: 2, knifeCut: 2, huajuan: 1, scallionHuajuan: 1, wholeWheat: 1 },
+  plainWater: { plainWater: 3, roundWhite: 2, softWhite: 2, knifeCut: 1 },
   milkMantou: { milkMantou: 3, softWhite: 2, creamMini: 2, taroSoy: 1 },
   oldDough: { oldDough: 3, qiangmian: 2, alkaline: 1, wholeWheat: 1 },
   softWhite: { softWhite: 3, roundWhite: 2, milkMantou: 1, creamMini: 1 },
