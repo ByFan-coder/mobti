@@ -25,48 +25,6 @@ const results = {
   scallionHuajuan: { title: "桂花酒酿馒头", tag: "咸香分支", sprite: [5, 3], description: "感觉已经属于甜品了" },
 };
 
-const photos = {
-  white: "https://commons.wikimedia.org/wiki/Special:FilePath/White%20flour%20steamed%20buns.jpg?width=900",
-  classicWhite: "https://commons.wikimedia.org/wiki/Special:FilePath/ClassicwhiteMantou.jpg?width=900",
-  colorful: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20steamed%20buns%20(1).jpg?width=900",
-  redBean: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20steamed%20buns%20(1).jpg?width=900",
-  redBeanOpen: "https://commons.wikimedia.org/wiki/Special:FilePath/Steamed%20buns%20and%20pancakes.jpg?width=900",
-  huajuan: "https://commons.wikimedia.org/wiki/Special:FilePath/Steamed%20Silver%20Thread%20Buns.jpg?width=900",
-  black: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20steamed%20buns%20(1).jpg?width=900",
-  buns: "https://commons.wikimedia.org/wiki/Special:FilePath/Steamed%20buns%20and%20pancakes.jpg?width=900",
-};
-
-const resultPhotos = {
-  plainWater: photos.white,
-  softWhite: photos.white,
-  oldDough: photos.classicWhite,
-  knifeCut: photos.classicWhite,
-  roundWhite: photos.white,
-  qiangmian: photos.classicWhite,
-  wholeWheat: photos.buns,
-  alkaline: photos.classicWhite,
-  creamMini: photos.colorful,
-  milkMantou: photos.white,
-  redBean: photos.redBean,
-  blackSesameFilling: photos.black,
-  corn: photos.colorful,
-  pumpkin: photos.colorful,
-  spinach: photos.colorful,
-  purpleSweetPotato: photos.colorful,
-  carrot: photos.colorful,
-  jujube: photos.colorful,
-  blueberry: photos.colorful,
-  taroSoy: photos.colorful,
-  brownSugar: photos.redBeanOpen,
-  huajuan: photos.huajuan,
-  sesame: photos.colorful,
-  scallionHuajuan: photos.huajuan,
-};
-
-Object.entries(resultPhotos).forEach(([key, image]) => {
-  results[key].image = image;
-});
-
 const resultOrder = Object.keys(results);
 
 const scoringProfiles = {
@@ -292,7 +250,7 @@ function renderResult() {
 
   document.querySelector("#result-name").textContent = result.title;
   document.querySelector("#result-description").innerHTML = `<p>${result.description}</p>`;
-  mantouPhoto.src = result.image;
-  mantouPhoto.alt = `${result.title}照片`;
+  mantouPhoto.style.backgroundPosition = `${(result.sprite[0] / 5) * 100}% ${(result.sprite[1] / 3) * 100}%`;
+  mantouPhoto.setAttribute("aria-label", `${result.title}照片`);
 }
 
