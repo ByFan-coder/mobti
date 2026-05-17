@@ -3,7 +3,7 @@ const results = {
   softWhite: { title: "甜馒头", tag: "蓬松柔和", sprite: [1, 0], description: "组织松软，轻盈的精制馒头。因为长得和大白馒头太像欺骗了无数健身人士" },
   oldDough: { title: "老面馒头", tag: "发酵充分", sprite: [2, 0], description: "这是我祖上石器时代传下来的老面..." },
   knifeCut: { title: "刀切馒头", tag: "形态利落", sprite: [3, 0], description: "边界清晰，结构直接的好馒头。可能是工厂出品" },
-  roundWhite: { title: "圆馒头", tag: "饱满安稳", sprite: [4, 0], description: "形态圆润，接受度高，是安全且耐看的选择。" },
+  roundWhite: { title: "圆馒头", tag: "饱满安稳", sprite: [4, 0], description: "其实是一只北长尾山雀" },
   qiangmian: { title: "戗面馒头", tag: "筋道扎实", sprite: [5, 0], description: "层次和嚼劲明显的山东馒头" },
   wholeWheat: { title: "全麦馒头", tag: "粗粮耐嚼", sprite: [0, 1], description: "非常的健康非常的朴实" },
   alkaline: { title: "碱面馒头", tag: "微黄硬核", sprite: [1, 1], description: "没吃过" },
