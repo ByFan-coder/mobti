@@ -9,7 +9,7 @@ const results = {
   alkaline: { title: "碱面馒头", tag: "微黄硬核", sprite: [1, 1], description: "没吃过" },
   creamMini: { title: "奶油小馒头", tag: "小份轻甜", sprite: [2, 1], description: "小孩菜，懒得喷" },
   milkMantou: { title: "牛奶馒头", tag: "温润顺滑", sprite: [3, 1], description: "你是面包来的吧" },
-  redBean: { title: "豆沙馒头", tag: "经典夹心", sprite: [4, 1], description: "外层克制，内馅明确，甜味集中但不复杂。" },
+  redBean: { title: "豆沙馒头", tag: "经典夹心", sprite: [4, 1], description: "“我要把你们豆沙了”" },
   blackSesameFilling: { title: "黑芝麻馒头", tag: "浓香内敛", sprite: [5, 1], description: "家里吃不完的黑芝麻粉不要扔..." },
   corn: { title: "玉米馒头", tag: "明亮粗粮", sprite: [0, 2], description: "颜色明亮香气浓郁真是一个好馍好馍" },
   pumpkin: { title: "南瓜馒头", tag: "软糯暖感", sprite: [1, 2], description: "颜色明亮香气浓郁真是一个好馍好馍" },
@@ -70,29 +70,29 @@ Object.entries(resultPhotos).forEach(([key, image]) => {
 const resultOrder = Object.keys(results);
 
 const scoringProfiles = {
-  plainWater: { plainWater: 3, roundWhite: 2, softWhite: 2, knifeCut: 1 },
-  milkMantou: { milkMantou: 3, softWhite: 2, creamMini: 2, taroSoy: 1 },
-  oldDough: { oldDough: 3, qiangmian: 2, alkaline: 1, wholeWheat: 1 },
-  softWhite: { softWhite: 3, roundWhite: 2, milkMantou: 1, creamMini: 1 },
-  qiangmian: { qiangmian: 3, oldDough: 2, alkaline: 1, wholeWheat: 1 },
-  knifeCut: { knifeCut: 3, plainWater: 2, qiangmian: 1 },
-  wholeWheat: { wholeWheat: 3, corn: 2, oldDough: 2, qiangmian: 1 },
-  spinach: { plainWater: 3, spinach: 3, sesame: 1, wholeWheat: 1 },
-  carrot: { plainWater: 3, carrot: 3, pumpkin: 2, corn: 1 },
-  redBean: { plainWater: 3, redBean: 3, blackSesameFilling: 2, taroSoy: 1 },
-  jujube: { plainWater: 3, jujube: 3, pumpkin: 1, brownSugar: 1 },
-  brownSugar: { plainWater: 3, brownSugar: 3, jujube: 2, redBean: 1 },
-  roundWhite: { roundWhite: 3, plainWater: 2, softWhite: 1 },
-  creamMini: { creamMini: 3, milkMantou: 2, softWhite: 1 },
-  huajuan: { plainWater: 3, huajuan: 3, scallionHuajuan: 2, plainWater: 1 },
-  sesame: { plainWater: 3, sesame: 3, blackSesameFilling: 2, taroSoy: 1 },
-  alkaline: { plainWater: 3, alkaline: 3, oldDough: 2, qiangmian: 1 },
-  scallionHuajuan: { plainWater: 3, scallionHuajuan: 3, huajuan: 2, knifeCut: 1 },
-  pumpkin: { plainWater: 3, pumpkin: 3, carrot: 2, jujube: 1 },
-  purpleSweetPotato: { plainWater: 3, purpleSweetPotato: 3, taroSoy: 2, blueberry: 1 },
-  blueberry: { plainWater: 3, blueberry: 3, taroSoy: 1, purpleSweetPotato: 1 },
-  corn: { plainWater: 3, corn: 3, wholeWheat: 2, pumpkin: 1 },
-  taroSoy: { plainWater: 3, taroSoy: 3, purpleSweetPotato: 2, milkMantou: 1 },
+  plainWater: { plainWater: 3, roundWhite: 2, knifeCut: 1 },
+  milkMantou: { milkMantou: 4, softWhite: 2, creamMini: 2, taroSoy: 1 },
+  oldDough: { oldDough: 3, qiangmian: 1, alkaline: 2, wholeWheat: 1 },
+  softWhite: { softWhite: 4, roundWhite: 2, milkMantou: 1, creamMini: 1 },
+  qiangmian: { qiangmian: 3, oldDough: 2, alkaline: 1, knifeCut: 1 },
+  knifeCut: { knifeCut: 4, plainWater: 2, qiangmian: 1, alkaline: 1 },
+  wholeWheat: { wholeWheat: 4, corn: 2, oldDough: 1, qiangmian: 1 },
+  spinach: { spinach: 4, sesame: 2, wholeWheat: 1, taroSoy: 1 },
+  carrot: { carrot: 4, pumpkin: 2, corn: 1, jujube: 1 },
+  redBean: { redBean: 5, blackSesameFilling: 2, creamMini: 1 },
+  jujube: { jujube: 4, pumpkin: 2, brownSugar: 1, redBean: 1 },
+  brownSugar: { brownSugar: 6, jujube: 1, redBean: 1 },
+  roundWhite: { roundWhite: 4, plainWater: 2, softWhite: 1, milkMantou: 1 },
+  creamMini: { creamMini: 4, milkMantou: 2, softWhite: 1, taroSoy: 1 },
+  huajuan: { huajuan: 6, scallionHuajuan: 2, knifeCut: 1 },
+  sesame: { sesame: 4, blackSesameFilling: 3, spinach: 2 },
+  alkaline: { alkaline: 4, oldDough: 2, qiangmian: 1, knifeCut: 1 },
+  scallionHuajuan: { scallionHuajuan: 6, huajuan: 2, sesame: 1 },
+  pumpkin: { pumpkin: 4, carrot: 2, corn: 1, jujube: 1 },
+  purpleSweetPotato: { purpleSweetPotato: 4, taroSoy: 1, blueberry: 2, blackSesameFilling: 1 },
+  blueberry: { blueberry: 6, purpleSweetPotato: 2, creamMini: 1 },
+  corn: { corn: 4, wholeWheat: 2, pumpkin: 1, carrot: 1 },
+  taroSoy: { taroSoy: 3, purpleSweetPotato: 2, milkMantou: 1, blackSesameFilling: 1 },
 };
 
 const questions = [
@@ -265,26 +265,28 @@ function renderQuestion() {
   });
 }
 
-function renderResult() {
-  const scores = Object.fromEntries(resultOrder.map((key) => [key, 0]));
-  const pickedResults = [];
+function getSemanticResultKey() {
+  const candidatePool = [];
+  const answerNumber = state.answers.reduce((value, answerIndex, questionIndex) => {
+    return value * questions[questionIndex].options.length + answerIndex;
+  }, 0);
 
   state.answers.forEach((answerIndex, questionIndex) => {
     const option = questions[questionIndex].options[answerIndex];
-    const optionScores = option.scores || scoringProfiles[option.result] || { [option.result]: 1 };
+    const optionScores = option.scores || scoringProfiles[option.result] || { [option.result]: 4 };
 
     Object.entries(optionScores).forEach(([resultKey, points]) => {
-      scores[resultKey] += points;
+      for (let count = 0; count < points; count += 1) {
+        candidatePool.push(resultKey);
+      }
     });
-    pickedResults.push(option.result);
   });
 
-  const highestScore = Math.max(...Object.values(scores));
-  const tiedWinners = resultOrder.filter((key) => scores[key] === highestScore);
-  const winnerKey =
-    tiedWinners.length === 1
-      ? tiedWinners[0]
-      : [...pickedResults].reverse().find((key) => tiedWinners.includes(key)) || tiedWinners[0];
+  return candidatePool[answerNumber % candidatePool.length];
+}
+
+function renderResult() {
+  const winnerKey = getSemanticResultKey();
   const result = results[winnerKey];
   const mantouPhoto = document.querySelector("#mantou-photo");
 
@@ -293,3 +295,4 @@ function renderResult() {
   mantouPhoto.src = result.image;
   mantouPhoto.alt = `${result.title}照片`;
 }
+
